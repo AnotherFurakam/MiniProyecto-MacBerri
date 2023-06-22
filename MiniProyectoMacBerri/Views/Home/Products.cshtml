@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Products";
+}
+
+@model MiniProyectoMacBerri.ModelsViews.ProductClientViewModel
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <h1 class="display-4 my-5">Productos Disponibles</h1>
+    <a class="p-3 bg-dark text-white text-decoration-none fs-5 rounded-3" asp-controller="Cart" asp-action="Index">Carrito <i class="bi bi-cart-dash"></i> @Html.DisplayFor(m => Model.CartItems)</a>
+</div>
+<div class="galery my-4">
+    @foreach (var product in Model.Products)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src=@product.UrlImage class="card-img-top img-fluid" alt=@product.Name>
+            <div class="card-body bg-light text-dark">
+                <h5 class="card-title truncate">@Html.DisplayFor(m => product.Name)</h5>
+                <p class="card-text truncate text-secondary">@Html.DisplayFor(m => product.Description)</p>
+                <h4 class="text-end fs-3 text-success">$ @Html.DisplayFor(m => product.Price)</h4>
+                <a class="btn btn-primary w-100" asp-controller="Cart" asp-action="AddToCart" asp-route-id_product=@product.IdProduct><i class="bi bi-cart-dash"></i> Añadir al carrito</a>
+            </div>
+        </div>
+    }
+</div>

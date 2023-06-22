@@ -1,0 +1,43 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    height: 100vh;
+}
+
+.truncate {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.change-password{
+    max-width: 600px;
+}
+
+.galery {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    grid-auto-rows: 500px;
+    justify-items: center;
+}
+
+.galery .card img {
+    width:100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card:hover {
+    box-shadow: 2px 7px 10px rgba(0,0,0,.2);
+    transition: box-shadow 150ms ease-in;
+}
+
+/*Cart Styles*/
+.cart-img {
+    max-width: 100px;
+    aspect-ratio: 4/4;
+    object-fit: cover;
+}

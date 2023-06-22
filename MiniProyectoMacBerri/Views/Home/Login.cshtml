@@ -1,0 +1,21 @@
+﻿@model MiniProyectoMacBerri.Dto.LoginDto
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+    <form asp-controller="Home" asp-action="Login" method="post" class="my-auto d-flex flex-column gap-4 shadow-lg p-5 rounded-2">
+        <h1 class="display-3 my-4 fw-normal">Inicia Sesión</h1>
+        <div class="mb-3">
+            <label class="form-label">Correo:</label>
+            <input type="email" class="form-control" asp-for="Email">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" asp-for="Password">
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="text-danger fs-6 text-center" asp-controller="Recovery" asp-action="Index">¿Haz olvidado tu contraseña?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-2 fs-5">Ingresar</button>
+    </form>
+</div>

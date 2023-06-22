@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MiniProyectoMacBerri.ModelsViews.ServiceViewModel
+
+<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+    <form asp-controller="Service" asp-action="Update" method="post" class="my-auto d-flex flex-column gap-4 shadow-lg p-5 rounded-2">
+        <h1 class="display-5 my-4 fw-normal">Actualización de Servicios</h1>
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" class="form-control" asp-for=@Model.ServiceDto.Name />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripción:</label>
+            <input type="text" class="form-control" asp-for=@Model.ServiceDto.Description />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Url de la imagen:</label>
+            <input type="text" class="form-control" asp-for=@Model.ServiceDto.UrlImage />
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-2 fs-5">Registrar</button>
+    </form>
+</div>
