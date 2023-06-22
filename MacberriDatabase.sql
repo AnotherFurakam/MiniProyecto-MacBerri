@@ -102,6 +102,7 @@ create table [shopcart](
 	[id_shopcart] uniqueidentifier default newid() primary key,
 	[id_user] uniqueidentifier not null,
 	[id_product] uniqueidentifier not null,
+	[quantity] int not null,
 
 	foreign key (id_user) references [user](id_user),
 	foreign key (id_product) references [product](id_product)

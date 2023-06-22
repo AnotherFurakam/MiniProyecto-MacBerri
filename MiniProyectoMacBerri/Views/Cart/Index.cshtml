@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model List<Product>
+@model List<Shopcart>
 
 <h1 class="display-4 my-4">Carrito de compras</h1>
 <div class="d-flex gap-4 w-100">
@@ -11,20 +11,27 @@
         @{
             decimal total = 0;
         }
-        @foreach (var product in Model)
+        @foreach (var item in Model)
         {
             <div class="d-flex gap-3 bg-light p-3 rounded-3 shadow-sm">
                 <div>
-                    <img class="img-fluid cart-img rounded-3 shadow-sm" src=@product.UrlImage alt=@product.Name />
+                    <img class="img-fluid cart-img rounded-3 shadow-sm" src=@item.IdProductNavigation.UrlImage alt=@item.IdProductNavigation.Name />
                 </div>
                 <div>
-                    <h5 class="text-dark">@Html.DisplayFor(m => @product.Name)</h5>
-                    <p class="text-secondary">@Html.DisplayFor(m => @product.Description)</p>
-                    <p class="text-secondary text-end fs-4">$ @Html.DisplayFor(m => @product.Price)</p>
+                    <h5 class="text-dark">@Html.DisplayFor(m => @item.IdProductNavigation.Name)</h5>
+                    <p class="text-secondary">@Html.DisplayFor(m => @item.IdProductNavigation.Description)</p>
+                    <p class="text-secondary text-end fs-4">$ @Html.DisplayFor(m => @item.IdProductNavigation.Price)</p>
                 </div>
-                <a class="d-flex align-items-center h-full btn btn-danger rounded-3"><i class="bi bi-trash3-fill"></i></a>
+                <div class="d-flex flex-column gap-2 my-auto">
+                    <div class="d-flex gap-3 align-items-center">
+                        <a class="btn btn-success" asp-controller="Cart" asp-action="RemoveToCart" asp-route-id_product=@item.IdProduct><i class="bi bi-dash-lg"></i></a>
+                        <p class="fs-2 m-0 p-1">@Html.DisplayFor(m => item.Quantity)</p>
+                        <a class="btn btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-id_product=@item.IdProduct><i class="bi bi-plus-lg"></i></a>
+                    </div>
+                    <a class="d-flex align-items-center justify-content-center btn btn-danger rounded-3" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-id_product=@item.IdProduct><i class="bi bi-trash3-fill"></i></a>
+                </div>
             </div>
-            total += product.Price;
+            total += (item.IdProductNavigation.Price * item.Quantity);
         }
     </div>
     <div class="col-4 p-4 bg-dark rounded-3 h-100">
@@ -33,7 +40,7 @@
             <label>Total:</label>
             <p>$ @total</p>
         </div>
-        <a class="btn btn-primary w-100 fs-4">Realizar compra</a>
+        <a class="btn btn-primary w-100 fs-4" asp-controller="Cart" asp-action="MakeSale">Realizar compra</a>
     </div>
 </div>
 

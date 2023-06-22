@@ -37,7 +37,7 @@ body {
 
 /*Cart Styles*/
 .cart-img {
-    max-width: 100px;
-    aspect-ratio: 4/4;
+    width: 150px;
+    height: 100px;
     object-fit: cover;
 }

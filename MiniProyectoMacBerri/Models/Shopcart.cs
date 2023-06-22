@@ -11,6 +11,8 @@ public partial class Shopcart
 
     public Guid IdProduct { get; set; }
 
+    public int Quantity { get; set; }
+
     public virtual Product IdProductNavigation { get; set; } = null!;
 
     public virtual User IdUserNavigation { get; set; } = null!;

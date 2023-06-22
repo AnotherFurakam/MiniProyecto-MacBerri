@@ -11,15 +11,15 @@
         <h1 class="display-5 my-4 fw-normal">Registro de Servicios</h1>
         <div class="mb-3">
             <label class="form-label">Nombre:</label>
-            <input type="text" class="form-control" asp-for=@Model.ServiceDto.Name />
+            <input type="text" class="form-control" required asp-for=@Model.ServiceDto.Name />
         </div>
         <div class="mb-3">
             <label class="form-label">Descripción:</label>
-            <input type="text" class="form-control" asp-for=@Model.ServiceDto.Description />
+            <input type="text" class="form-control" required asp-for=@Model.ServiceDto.Description />
         </div>
         <div class="mb-3">
             <label class="form-label">Url de la imagen:</label>
-            <input type="text" class="form-control" asp-for=@Model.ServiceDto.UrlImage />
+            <input type="text" class="form-control" required asp-for=@Model.ServiceDto.UrlImage />
         </div>
         <button type="submit" class="btn btn-primary w-100 py-2 fs-5">Registrar</button>
     </form>

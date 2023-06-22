@@ -3,5 +3,22 @@
     ViewData["Title"] = "Services";
 }
 
-<h1>Services</h1>
+@model MiniProyectoMacBerri.ModelsViews.ServiceClientViewModel
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <h1 class="display-4 my-5">Servicios disponibles</h1>
+    <a class="p-3 bg-dark text-white text-decoration-none fs-5 rounded-3" asp-controller="Reserve" asp-action="MyReserve">Mis Reservas</a>
+</div>
+<div class="galery my-4">
+    @foreach (var services in Model.Services)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src=@services.UrlImage class="card-img-top img-fluid" alt=@services.Name>
+            <div class="card-body bg-light text-dark">
+                <h5 class="card-title truncate">@Html.DisplayFor(m => services.Name)</h5>
+                <p class="card-text text-secondary">@Html.DisplayFor(m => services.Description)</p>
+                <a class="btn btn-primary w-100" asp-controller="Reserve" asp-action="Index" asp-route-id_service=@services.IdService>Reservar</a>
+            </div>
+        </div>
+    }
+</div>
 

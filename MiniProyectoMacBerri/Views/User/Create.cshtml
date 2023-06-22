@@ -10,23 +10,23 @@
         <h1 class="display-5 my-4 fw-normal">Registro de usuario</h1>
         <div class="mb-3">
             <label class="form-label">Nombres:</label>
-            <input type="text" class="form-control" asp-for=@Model.userDto.Names />
+            <input type="text" class="form-control" required asp-for=@Model.userDto.Names />
         </div>
         <div class="mb-3">
             <label class="form-label">Apellidos:</label>
-            <input type="text" class="form-control" asp-for=@Model.userDto.Lastnames />
+            <input type="text" class="form-control" required asp-for=@Model.userDto.Lastnames />
         </div>
         <div class="mb-3">
             <label class="form-label">Email:</label>
-            <input type="email" class="form-control" asp-for=@Model.userDto.Email />
+            <input type="email" class="form-control" required asp-for=@Model.userDto.Email />
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña:</label>
-            <input type="password" class="form-control" asp-for=@Model.userDto.Password />
+            <input type="password" class="form-control" required asp-for=@Model.userDto.Password />
         </div>
         <div class="mb-3">
             <label class="form-label">Rol:</label>
-            <select class="form-select" aria-label="Default select example" asp-for=@Model.userDto.Id_rol>
+            <select class="form-select" aria-label="Default select example" required asp-for=@Model.userDto.Id_rol>
                 <option selected>Seleccione...</option>
                 @foreach (var rol in Model.roles)
                 {

@@ -30,6 +30,8 @@ builder.Services.AddScoped<IRoleService, RoleServiceImpl>();
 builder.Services.AddScoped<IProductService, ProductServiceImpl>();
 builder.Services.AddScoped<IServiceService, ServiceServiceImpl>();
 builder.Services.AddScoped<ICartServices, CartServiceImpl>();
+builder.Services.AddScoped<ISaleService, SaleServiceImpl>();
+builder.Services.AddScoped<IReserveService, ReserveServiceImpl>();
 
 var app = builder.Build();
 

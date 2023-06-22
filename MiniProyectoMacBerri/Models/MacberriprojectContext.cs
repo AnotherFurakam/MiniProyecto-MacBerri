@@ -41,7 +41,7 @@ public partial class MacberriprojectContext : DbContext
     {
         modelBuilder.Entity<Detail>(entity =>
         {
-            entity.HasKey(e => e.IdDetail).HasName("PK__detail__EA8338084FB6E3FA");
+            entity.HasKey(e => e.IdDetail).HasName("PK__detail__EA8338083BB65D0D");
 
             entity.ToTable("detail");
 
@@ -71,7 +71,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.IdProduct).HasName("PK__product__BA39E84FA45E05A5");
+            entity.HasKey(e => e.IdProduct).HasName("PK__product__BA39E84FEEF24F8E");
 
             entity.ToTable("product");
 
@@ -94,7 +94,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Reserve>(entity =>
         {
-            entity.HasKey(e => e.IdReserve).HasName("PK__reserve__423CBE59897A1901");
+            entity.HasKey(e => e.IdReserve).HasName("PK__reserve__423CBE5927F55CA9");
 
             entity.ToTable("reserve");
 
@@ -124,7 +124,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Rol>(entity =>
         {
-            entity.HasKey(e => e.IdRol).HasName("PK__rol__6ABCB5E08D226135");
+            entity.HasKey(e => e.IdRol).HasName("PK__rol__6ABCB5E0717EC4FD");
 
             entity.ToTable("rol");
 
@@ -141,7 +141,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Sale>(entity =>
         {
-            entity.HasKey(e => e.IdSale).HasName("PK__sale__D18B0157F89DECB8");
+            entity.HasKey(e => e.IdSale).HasName("PK__sale__D18B01577403FC97");
 
             entity.ToTable("sale");
 
@@ -165,7 +165,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Service>(entity =>
         {
-            entity.HasKey(e => e.IdService).HasName("PK__service__D06FB5A8AC26F6BD");
+            entity.HasKey(e => e.IdService).HasName("PK__service__D06FB5A8A2D49A6D");
 
             entity.ToTable("service");
 
@@ -185,7 +185,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<Shopcart>(entity =>
         {
-            entity.HasKey(e => e.IdShopcart).HasName("PK__shopcart__AFFD978E47777264");
+            entity.HasKey(e => e.IdShopcart).HasName("PK__shopcart__AFFD978E2713C3B9");
 
             entity.ToTable("shopcart");
 
@@ -194,6 +194,7 @@ public partial class MacberriprojectContext : DbContext
                 .HasColumnName("id_shopcart");
             entity.Property(e => e.IdProduct).HasColumnName("id_product");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.Quantity).HasColumnName("quantity");
 
             entity.HasOne(d => d.IdProductNavigation).WithMany(p => p.Shopcarts)
                 .HasForeignKey(d => d.IdProduct)
@@ -208,7 +209,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.IdUser).HasName("PK__user__D2D14637114AB1C9");
+            entity.HasKey(e => e.IdUser).HasName("PK__user__D2D146377B37A0AB");
 
             entity.ToTable("user");
 
@@ -241,7 +242,7 @@ public partial class MacberriprojectContext : DbContext
 
         modelBuilder.Entity<UserService>(entity =>
         {
-            entity.HasKey(e => e.IdUserServices).HasName("PK__user_ser__ABE7A4A502F9040C");
+            entity.HasKey(e => e.IdUserServices).HasName("PK__user_ser__ABE7A4A5437F5E87");
 
             entity.ToTable("user_services");
 

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MiniProyectoMacBerri.ModelsViews.ReserveClientViewModel
+
+<div class="d-flex w-100 h-100 justify-content-center align-items-center">
+    <form class="shadow p-5 rounded-3" asp-controller="Reserve" asp-action="Index" method="post">
+        <h1 class="display-5 fw-normal mt-3">Reservar</h1>
+        <p class="w-100 text-center fs-4 text-secondary">@Model.Service.Name</p>
+        <div class="my-4">
+            <label class="form-label">Selección la fecha y hora:</label>
+            <input class="form-control" type="datetime-local" required asp-for=@Model.ReserveDto.LimitDate />
+        </div>
+        <div class="my-3">
+            <button class="btn btn-primary w-100">Reservar</button>
+        </div>
+        <div class="d-flex justify-content-center w-100">
+            <span asp-validation-for="ReserveDto.LimitDate" class="text-danger fs-6"></span>
+        </div>
+    </form>
+</div>
+

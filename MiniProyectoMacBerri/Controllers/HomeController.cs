@@ -17,13 +17,15 @@ namespace MiniProyectoMacBerri.Controllers
         private readonly IUserService _userService;
         private readonly IProductService _productServices;
         private readonly ICartServices _cartServices;
+        private readonly IServiceService _serviceService;
 
-        public HomeController(ILogger<HomeController> logger, IUserService userService, IProductService productServices, ICartServices cartServices)
+        public HomeController(ILogger<HomeController> logger, IUserService userService, IProductService productServices, ICartServices cartServices, IServiceService serviceService)
         {
             _logger = logger;
             _userService = userService;
             _productServices = productServices;
             _cartServices = cartServices;
+            _serviceService = serviceService;
         }
 
         public IActionResult Index()
@@ -95,9 +97,14 @@ namespace MiniProyectoMacBerri.Controllers
         /*Services*/
 
         [Authorize(Roles = "STANDARD")]
-        public IActionResult Services()
+        public async Task<IActionResult> Services()
         {
-            return View();
+            var services = await _serviceService.GetAll();
+            var model = new ServiceClientViewModel()
+            {
+                Services = services
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

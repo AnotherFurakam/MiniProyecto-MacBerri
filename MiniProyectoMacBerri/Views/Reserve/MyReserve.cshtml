@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "MyReserve";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<Reserve>
+
+<h1 class="display-4 my-4">Mis reservas</h1>
+<div class="d-flex gap-4 w-100">
+    <div class="col-8  d-flex flex-column gap-4 border border-secondary p-4 rounded-3">
+        @foreach (var reserve in Model)
+        {
+            <div class="d-flex gap-3 bg-light p-3 rounded-3 shadow-sm">
+                <div>
+                    <img class="img-fluid cart-img rounded-3 shadow-sm" src=@reserve.IdServiceNavigation.UrlImage alt=@reserve.IdServiceNavigation.Name />
+                </div>
+                <div>
+                    <h5 class="text-dark">@Html.DisplayFor(m => @reserve.IdServiceNavigation.Name)</h5>
+                    <p class="text-secondary">@Html.DisplayFor(m => @reserve.IdServiceNavigation.Description)</p>
+                    <p class="text-secondary">Solicitado el: @Html.DisplayFor(m => @reserve.RequestedAt)</p>
+                    <p class="text-secondary">Reservado para el: @Html.DisplayFor(m => @reserve.LimitDate)</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
